@@ -1,0 +1,28 @@
+[project]
+name = "tracecam-recorder"
+version = "0.0.0"
+description = "Records Python execution as a tracecam trace, using sys.monitoring."
+requires-python = ">=3.12"
+dependencies = ["orjson>=3.10"]
+
+[project.optional-dependencies]
+# xxhash is a chunk-hashing accelerator; snapshot.py falls back to hash(tuple(...)) without it.
+fast = ["xxhash>=3.4"]
+dev = ["ruff>=0.6", "pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tracecam_recorder"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "ANN"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
