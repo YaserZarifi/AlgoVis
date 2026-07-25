@@ -1,0 +1,6 @@
+packages:
+  - "packages/*"
+
+# esbuild is vitest's transform backend; its postinstall links the platform binary.
+allowBuilds:
+  esbuild: true
