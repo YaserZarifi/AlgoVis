@@ -33,6 +33,54 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.20.1)(supports-color@7.2.0)
 
+  packages/audio:
+    dependencies:
+      '@tracecam/schema':
+        specifier: workspace:*
+        version: link:../schema
+      '@tracecam/theme':
+        specifier: workspace:*
+        version: link:../theme
+
+  packages/cli:
+    dependencies:
+      '@tracecam/audio':
+        specifier: workspace:*
+        version: link:../audio
+      '@tracecam/director':
+        specifier: workspace:*
+        version: link:../director
+      '@tracecam/lift':
+        specifier: workspace:*
+        version: link:../lift
+      '@tracecam/schema':
+        specifier: workspace:*
+        version: link:../schema
+      '@tracecam/theme':
+        specifier: workspace:*
+        version: link:../theme
+      '@tracecam/video':
+        specifier: workspace:*
+        version: link:../video
+      clipanion:
+        specifier: ^3.2.1
+        version: 3.2.1(typanion@3.14.0)
+
+  packages/director:
+    dependencies:
+      '@tracecam/schema':
+        specifier: workspace:*
+        version: link:../schema
+      '@tracecam/theme':
+        specifier: workspace:*
+        version: link:../theme
+
+  packages/lift:
+    dependencies:
+      '@tracecam/schema':
+        specifier: workspace:*
+        version: link:../schema
+
   packages/schema:
     dependencies:
       zod:
@@ -44,6 +92,27 @@ importers:
       '@tracecam/schema':
         specifier: workspace:*
         version: link:../schema
+
+  packages/video:
+    dependencies:
+      '@tracecam/schema':
+        specifier: workspace:*
+        version: link:../schema
+      '@tracecam/theme':
+        specifier: workspace:*
+        version: link:../theme
+      '@tracecam/views':
+        specifier: workspace:*
+        version: link:../views
+
+  packages/views:
+    dependencies:
+      '@tracecam/schema':
+        specifier: workspace:*
+        version: link:../schema
+      '@tracecam/theme':
+        specifier: workspace:*
+        version: link:../theme
 
 packages:
 
@@ -569,6 +638,11 @@ packages:
     resolution: {integrity: sha512-PAJdDJusoxnwm1VwW07VWwUN1sl7smmC3OKggvndJFadxxDRyFJBX/ggnu/KE4kQAB7a3Dp8f/YXC1FlUprWmA==}
     engines: {node: '>= 16'}
 
+  clipanion@3.2.1:
+    resolution: {integrity: sha512-dYFdjLb7y1ajfxQopN05mylEpK9ZX0sO1/RfMXdfmwjlIsPkbh4p7A682x++zFPLDCo1x3p82dtljHf5cW2LKA==}
+    peerDependencies:
+      typanion: '*'
+
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -920,6 +994,9 @@ packages:
   turbo@2.10.6:
     resolution: {integrity: sha512-3VfH7fK7WQ/ZHYjvfWyVnPRpcNaX3ZqXfGDMdc82eGdM0ESATyxFK4R4PM3wNsVFsdkUFZ4pZpkNeG37dxOv+g==}
     hasBin: true
+
+  typanion@3.14.0:
+    resolution: {integrity: sha512-ZW/lVMRabETuYCd9O9ZvMhAh8GslSqaUjxmK/JLPCh6l73CvLBiuXswj/+7LdnWOgYsQ130FqLzFz5aGT4I3Ug==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -1445,6 +1522,10 @@ snapshots:
 
   check-error@2.1.3: {}
 
+  clipanion@3.2.1(typanion@3.14.0):
+    dependencies:
+      typanion: 3.14.0
+
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -1801,6 +1882,8 @@ snapshots:
       '@turbo/linux-arm64': 2.10.6
       '@turbo/windows-64': 2.10.6
       '@turbo/windows-arm64': 2.10.6
+
+  typanion@3.14.0: {}
 
   type-check@0.4.0:
     dependencies:
