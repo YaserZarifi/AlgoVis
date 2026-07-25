@@ -4,7 +4,7 @@ import { z } from "zod";
  * An access chain into a watched container: ["arr", 3], ["dp", 4, 7], ["g", "adj", "B"].
  *
  * Always an array, never a dotted string — a dotted string becomes ambiguous the moment a dict
- * key contains a period (CLAUDE.md §5.2).
+ * key contains a period (§5.2).
  */
 export const PathSchema = z.array(z.union([z.string(), z.number().int()]));
 export type Path = z.infer<typeof PathSchema>;

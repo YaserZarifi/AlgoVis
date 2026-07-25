@@ -13,7 +13,10 @@ whose input is an execution trace and whose output is finished video.
 
 **Phase 0 — scaffold.** Schemas, determinism lint rule, and CLI skeleton are in place. The
 pipeline itself is not implemented yet; every subcommand except `doctor` exits 1 with
-`not implemented`. See `CLAUDE.md` §17 for the phase plan.
+`not implemented`.
+
+Section references in the source (§2.1, §14, and so on) point at the build spec, which is kept
+locally and is not published here.
 
 ## How it works
 
