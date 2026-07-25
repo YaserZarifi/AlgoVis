@@ -78,16 +78,21 @@ On Windows PowerShell there is no `&&` — chain with `;` instead.
 
 ### Running the CLI
 
-`pnpm install` creates a bin shim, so after building:
+`pnpm install` creates a bin shim, so after building the CLI runs with no further setup:
 
 ```bash
 pnpm exec algovis --help
-pnpm exec algovis run examples/quicksort.py
+pnpm exec algovis doctor
 ```
 
-To get a bare `algovis` on your PATH, link it globally:
+`./node_modules/.bin/algovis` works too, from the repo root.
+
+A bare `algovis` on your PATH needs pnpm's global bin directory to exist first, which is a
+one-time setup plus a shell restart:
 
 ```bash
+pnpm setup                                   # sets PNPM_HOME and adds it to PATH
+# open a new terminal
 pnpm --filter @algovis/cli link --global
 ```
 
