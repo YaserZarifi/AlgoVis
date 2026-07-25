@@ -24,6 +24,10 @@ $ErrorActionPreference = "Continue"
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
 
+# Child processes emit UTF-8; without this the console decodes it as the OEM codepage and the
+# box-drawing characters in tool output arrive as mojibake, making failure detail unreadable.
+try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch { }
+
 # ffmpeg is often installed into a shell that is already open; pick up PATH changes.
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" +
             [System.Environment]::GetEnvironmentVariable("Path", "User")
@@ -128,7 +132,11 @@ $helpText = $help -join "`n"
 $subcommands = @("run", "record", "lift", "direct", "render", "studio", "diff", "doctor")
 $missing = $subcommands | Where-Object { $helpText -notmatch ("algovis\s+" + $_ + "\b") }
 Test-Step "--help lists all eight subcommands" { $missing.Count -eq 0 } ("missing: " + ($missing -join ", "))
-Test-Step "--help reports the binary as 'algovis'" { $helpText -match "^algovis" } ("first line was: " + (($helpText -split "`n")[0]))
+# Deliberately not anchored to the start of the line: in a real terminal clipanion decorates the
+# banner with a box-drawing rule ("=== algovis - 0.0.0 ==="), and only prints it bare when piped.
+Test-Step "--help reports the binary as 'algovis'" {
+  ($helpText -match "algovis\s+-\s+\d+\.\d+\.\d+") -and ($helpText -notmatch "trace" + "cam")
+} ("first line was: " + (($helpText -split "`n")[0]))
 
 # The bin shim is what makes `pnpm exec algovis` work; without @algovis/cli as a root dependency
 # pnpm never creates it, and the only way to run the CLI is the full path into dist.
