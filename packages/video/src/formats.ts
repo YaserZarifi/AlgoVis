@@ -1,4 +1,4 @@
-import { FormatSchema, PresetSchema, type Format, type FormatId, type Preset } from "@tracecam/schema";
+import { FormatSchema, PresetSchema, type Format, type FormatId, type Preset } from "@algovis/schema";
 
 /**
  * One command produces all four (§14).

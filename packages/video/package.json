@@ -1,5 +1,5 @@
 {
-  "name": "@tracecam/video",
+  "name": "@algovis/video",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -13,8 +13,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@tracecam/schema": "workspace:*",
-    "@tracecam/theme": "workspace:*",
-    "@tracecam/views": "workspace:*"
+    "@algovis/schema": "workspace:*",
+    "@algovis/theme": "workspace:*",
+    "@algovis/views": "workspace:*"
   }
 }

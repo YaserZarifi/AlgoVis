@@ -1,4 +1,4 @@
-import type { Beat, Ops, WarpPoint } from "@tracecam/schema";
+import type { Beat, Ops, WarpPoint } from "@algovis/schema";
 
 /**
  * Maps trace steps to video frames non-linearly. This is the edit, and it is what turns a

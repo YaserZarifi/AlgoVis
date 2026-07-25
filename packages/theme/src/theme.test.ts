@@ -1,4 +1,4 @@
-import { ThemeIdSchema, ThemeSchema } from "@tracecam/schema";
+import { ThemeIdSchema, ThemeSchema } from "@algovis/schema";
 import { describe, expect, it } from "vitest";
 import { BLUEPRINT_INK, FORBIDDEN_HEXES, OSCILLOSCOPE_INK, RISOGRAPH_INK } from "./palettes.js";
 import { THEMES, themeById } from "./themes.js";

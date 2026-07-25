@@ -1,4 +1,4 @@
-﻿import { FormatIdSchema, ThemeIdSchema, type FormatId, type ThemeId } from "@tracecam/schema";
+import { FormatIdSchema, ThemeIdSchema, type FormatId, type ThemeId } from "@algovis/schema";
 
 /**
  * Option parsing lives here, pure and separately testable, because a stage that misreads its

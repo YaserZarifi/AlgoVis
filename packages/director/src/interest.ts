@@ -1,4 +1,4 @@
-import type { Ops } from "@tracecam/schema";
+import type { Ops } from "@algovis/schema";
 
 /**
  * Scores every step, so the time warp can allocate frames in proportion to how much is

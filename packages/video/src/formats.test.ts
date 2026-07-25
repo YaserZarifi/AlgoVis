@@ -1,4 +1,4 @@
-import { FormatIdSchema } from "@tracecam/schema";
+import { FormatIdSchema } from "@algovis/schema";
 import { describe, expect, it } from "vitest";
 import { CONFIG } from "./config.js";
 import { FORMATS, PRESETS, formatById } from "./formats.js";

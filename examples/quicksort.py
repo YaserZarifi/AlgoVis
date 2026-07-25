@@ -1,6 +1,6 @@
 """Quicksort with Lomuto partitioning.
 
-The canonical example. `tracecam run examples/quicksort.py`, with no other arguments, must
+The canonical example. `algovis run examples/quicksort.py`, with no other arguments, must
 produce four watchable MP4s — if it does not, the project has failed regardless of what else
 works (CLAUDE.md section 16).
 

@@ -1,4 +1,4 @@
-import type { Caption, Ops, WarpPoint } from "@tracecam/schema";
+import type { Caption, Ops, WarpPoint } from "@algovis/schema";
 
 /**
  * Writes burned-in captions. Social video is watched muted by default and the platform's

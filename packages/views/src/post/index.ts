@@ -1,4 +1,4 @@
-import type { PostChain } from "@tracecam/schema";
+import type { PostChain } from "@algovis/schema";
 import type { AttentionMask } from "../view.js";
 import type { Framebuffer } from "../gl/index.js";
 

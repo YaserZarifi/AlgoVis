@@ -35,31 +35,31 @@ importers:
 
   packages/audio:
     dependencies:
-      '@tracecam/schema':
+      '@algovis/schema':
         specifier: workspace:*
         version: link:../schema
-      '@tracecam/theme':
+      '@algovis/theme':
         specifier: workspace:*
         version: link:../theme
 
   packages/cli:
     dependencies:
-      '@tracecam/audio':
+      '@algovis/audio':
         specifier: workspace:*
         version: link:../audio
-      '@tracecam/director':
+      '@algovis/director':
         specifier: workspace:*
         version: link:../director
-      '@tracecam/lift':
+      '@algovis/lift':
         specifier: workspace:*
         version: link:../lift
-      '@tracecam/schema':
+      '@algovis/schema':
         specifier: workspace:*
         version: link:../schema
-      '@tracecam/theme':
+      '@algovis/theme':
         specifier: workspace:*
         version: link:../theme
-      '@tracecam/video':
+      '@algovis/video':
         specifier: workspace:*
         version: link:../video
       clipanion:
@@ -68,16 +68,16 @@ importers:
 
   packages/director:
     dependencies:
-      '@tracecam/schema':
+      '@algovis/schema':
         specifier: workspace:*
         version: link:../schema
-      '@tracecam/theme':
+      '@algovis/theme':
         specifier: workspace:*
         version: link:../theme
 
   packages/lift:
     dependencies:
-      '@tracecam/schema':
+      '@algovis/schema':
         specifier: workspace:*
         version: link:../schema
 
@@ -89,28 +89,28 @@ importers:
 
   packages/theme:
     dependencies:
-      '@tracecam/schema':
+      '@algovis/schema':
         specifier: workspace:*
         version: link:../schema
 
   packages/video:
     dependencies:
-      '@tracecam/schema':
+      '@algovis/schema':
         specifier: workspace:*
         version: link:../schema
-      '@tracecam/theme':
+      '@algovis/theme':
         specifier: workspace:*
         version: link:../theme
-      '@tracecam/views':
+      '@algovis/views':
         specifier: workspace:*
         version: link:../views
 
   packages/views:
     dependencies:
-      '@tracecam/schema':
+      '@algovis/schema':
         specifier: workspace:*
         version: link:../schema
-      '@tracecam/theme':
+      '@algovis/theme':
         specifier: workspace:*
         version: link:../theme
 

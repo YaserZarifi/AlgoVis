@@ -41,7 +41,7 @@ export class RunCommand extends StageCommand {
   static override paths = [["run"]];
   static override usage = Command.Usage({
     description: "Record, lift, direct, and render — the whole pipeline.",
-    examples: [["Render every format from one file", "tracecam run examples/quicksort.py"]],
+    examples: [["Render every format from one file", "algovis run examples/quicksort.py"]],
   });
 
   file = Option.String();

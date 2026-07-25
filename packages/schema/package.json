@@ -1,9 +1,9 @@
 {
-  "name": "@tracecam/schema",
+  "name": "@algovis/schema",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Zod schemas for every tracecam artifact. Imports nothing but zod.",
+  "description": "Zod schemas for every algovis artifact. Imports nothing but zod.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

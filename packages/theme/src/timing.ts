@@ -1,4 +1,4 @@
-import { TimingSchema, type Timing } from "@tracecam/schema";
+import { TimingSchema, type Timing } from "@algovis/schema";
 
 /**
  * Milliseconds, except `stagger`/`staggerMax` (also ms, per element) and `slowMoFactor`

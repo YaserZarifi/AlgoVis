@@ -1,4 +1,4 @@
-import type { FormatId, Ops, Storyboard, ThemeId } from "@tracecam/schema";
+import type { FormatId, Ops, Storyboard, ThemeId } from "@algovis/schema";
 
 export * from "./audio-events.js";
 export * from "./camera.js";

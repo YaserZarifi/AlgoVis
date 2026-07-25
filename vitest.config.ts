@@ -9,13 +9,13 @@ export default defineConfig({
   // clean checkout without a build having run first.
   resolve: {
     alias: {
-      "@tracecam/schema": pkgSrc("schema"),
-      "@tracecam/theme": pkgSrc("theme"),
-      "@tracecam/lift": pkgSrc("lift"),
-      "@tracecam/director": pkgSrc("director"),
-      "@tracecam/views": pkgSrc("views"),
-      "@tracecam/video": pkgSrc("video"),
-      "@tracecam/audio": pkgSrc("audio"),
+      "@algovis/schema": pkgSrc("schema"),
+      "@algovis/theme": pkgSrc("theme"),
+      "@algovis/lift": pkgSrc("lift"),
+      "@algovis/director": pkgSrc("director"),
+      "@algovis/views": pkgSrc("views"),
+      "@algovis/video": pkgSrc("video"),
+      "@algovis/audio": pkgSrc("audio"),
     },
   },
   test: {

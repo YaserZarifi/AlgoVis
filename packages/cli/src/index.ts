@@ -3,8 +3,8 @@ import { Builtins, Cli } from "clipanion";
 import { COMMANDS } from "./commands.js";
 
 const cli = new Cli({
-  binaryLabel: "tracecam",
-  binaryName: "tracecam",
+  binaryLabel: "algovis",
+  binaryName: "algovis",
   binaryVersion: "0.0.0",
 });
 

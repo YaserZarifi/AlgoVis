@@ -1,4 +1,4 @@
-import type { CameraKey, Ops, Rect } from "@tracecam/schema";
+import type { CameraKey, Ops, Rect } from "@algovis/schema";
 
 /**
  * Produces camera keyframes. Without this the output looks like a spreadsheet; with it, it

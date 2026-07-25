@@ -1,4 +1,4 @@
-import type { JsonValue, Ops, Trace } from "@tracecam/schema";
+import type { JsonValue, Ops, Trace } from "@algovis/schema";
 
 /**
  * Reconstructs the full state of every watched variable at step `t`, by taking the nearest

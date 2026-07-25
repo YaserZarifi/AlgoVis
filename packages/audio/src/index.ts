@@ -1,4 +1,4 @@
-import type { Storyboard } from "@tracecam/schema";
+import type { Storyboard } from "@algovis/schema";
 
 /**
  * Maps a value onto MIDI C3..C5, two octaves (§15). The payoff is that a sorted array becomes an

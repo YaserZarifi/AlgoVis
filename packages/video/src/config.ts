@@ -1,5 +1,5 @@
-import { parseConfig, type Config } from "@tracecam/schema";
-import { THEMES, TIMING } from "@tracecam/theme";
+import { parseConfig, type Config } from "@algovis/schema";
+import { THEMES, TIMING } from "@algovis/theme";
 import { FORMATS, PRESETS } from "./formats.js";
 
 /**

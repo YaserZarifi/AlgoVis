@@ -1,4 +1,4 @@
-import { ThemeSchema, type Theme, type ThemeId } from "@tracecam/schema";
+import { ThemeSchema, type Theme, type ThemeId } from "@algovis/schema";
 import { BLUEPRINT_INK, OSCILLOSCOPE_INK, RISOGRAPH_INK } from "./palettes.js";
 
 /** Global post-chain constants from §10, identical across themes; only intensity varies. */

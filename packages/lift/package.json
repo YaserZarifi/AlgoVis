@@ -1,5 +1,5 @@
 {
-  "name": "@tracecam/lift",
+  "name": "@algovis/lift",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -13,6 +13,6 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@tracecam/schema": "workspace:*"
+    "@algovis/schema": "workspace:*"
   }
 }

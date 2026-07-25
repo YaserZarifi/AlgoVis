@@ -1,4 +1,4 @@
-import type { AudioEvent, Ops, WarpPoint } from "@tracecam/schema";
+import type { AudioEvent, Ops, WarpPoint } from "@algovis/schema";
 
 /**
  * Places sound events on the timeline, quantized to a 1/64-note grid at 120 BPM. Un-quantized

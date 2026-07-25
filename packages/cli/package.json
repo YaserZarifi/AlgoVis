@@ -1,13 +1,13 @@
 {
-  "name": "@tracecam/cli",
+  "name": "@algovis/cli",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "The tracecam binary.",
+  "description": "The algovis binary.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "tracecam": "./dist/index.js"
+    "algovis": "./dist/index.js"
   },
   "files": ["dist"],
   "scripts": {
@@ -15,12 +15,12 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@tracecam/audio": "workspace:*",
-    "@tracecam/director": "workspace:*",
-    "@tracecam/lift": "workspace:*",
-    "@tracecam/schema": "workspace:*",
-    "@tracecam/theme": "workspace:*",
-    "@tracecam/video": "workspace:*",
+    "@algovis/audio": "workspace:*",
+    "@algovis/director": "workspace:*",
+    "@algovis/lift": "workspace:*",
+    "@algovis/schema": "workspace:*",
+    "@algovis/theme": "workspace:*",
+    "@algovis/video": "workspace:*",
     "clipanion": "^3.2.1"
   }
 }

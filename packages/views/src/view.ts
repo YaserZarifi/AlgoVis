@@ -1,4 +1,4 @@
-import type { Op, Path, Rect, Theme, ViewId } from "@tracecam/schema";
+import type { Op, Path, Rect, Theme, ViewId } from "@algovis/schema";
 
 /**
  * A path serialized for use as a Map key. Paths are arrays, so they cannot key a Map by

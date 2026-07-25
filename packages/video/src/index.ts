@@ -1,4 +1,4 @@
-import type { Storyboard } from "@tracecam/schema";
+import type { Storyboard } from "@algovis/schema";
 
 export * from "./config.js";
 export * from "./formats.js";
