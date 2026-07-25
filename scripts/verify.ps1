@@ -31,9 +31,16 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";
 $script:Failures = @()
 $script:Checks = 0
 
+# Tools colourize when they detect a console, so output differs between an interactive run and
+# a piped one. Strip the escape sequences centrally or anchored matches fail only for the user.
+function Remove-Ansi {
+  param([string[]]$Text)
+  return $Text | ForEach-Object { [regex]::Replace([string]$_, "\x1B\[[0-9;]*[A-Za-z]", "") }
+}
+
 function Invoke-Cli {
   param([string]$Arguments)
-  return (cmd /c "node packages\cli\dist\index.js $Arguments 2>&1")
+  return (Remove-Ansi (cmd /c "node packages\cli\dist\index.js $Arguments 2>&1"))
 }
 
 function Test-Step {
@@ -84,11 +91,11 @@ Test-Step "doctor reports all four prerequisites satisfied" { $doctorOk } "docto
 Write-Section "Acceptance: build, test, lint"
 
 if (-not $Fast) {
-  $build = cmd /c "pnpm build 2>&1"
+  $build = Remove-Ansi (cmd /c "pnpm build 2>&1")
   Test-Step "pnpm build" { $LASTEXITCODE -eq 0 } (($build | Select-String "error" | Select-Object -First 3) -join "; ")
 }
 
-$testOut = cmd /c "pnpm test 2>&1"
+$testOut = Remove-Ansi (cmd /c "pnpm test 2>&1")
 $testOk = $LASTEXITCODE -eq 0
 $testLine = ($testOut | Select-String "Tests\s+\d+ passed" | Select-Object -First 1)
 Test-Step "pnpm test$(if ($testLine) { '  (' + $testLine.ToString().Trim() + ')' })" { $testOk } (($testOut | Select-String "FAIL|✕" | Select-Object -First 5) -join "; ")
@@ -121,7 +128,13 @@ $helpText = $help -join "`n"
 $subcommands = @("run", "record", "lift", "direct", "render", "studio", "diff", "doctor")
 $missing = $subcommands | Where-Object { $helpText -notmatch ("algovis\s+" + $_ + "\b") }
 Test-Step "--help lists all eight subcommands" { $missing.Count -eq 0 } ("missing: " + ($missing -join ", "))
-Test-Step "--help reports the binary as 'algovis'" { $helpText -match "^algovis" }
+Test-Step "--help reports the binary as 'algovis'" { $helpText -match "^algovis" } ("first line was: " + (($helpText -split "`n")[0]))
+
+# The bin shim is what makes `pnpm exec algovis` work; without @algovis/cli as a root dependency
+# pnpm never creates it, and the only way to run the CLI is the full path into dist.
+$shim = Remove-Ansi (cmd /c "pnpm exec algovis --version 2>&1")
+$shimOk = $LASTEXITCODE -eq 0
+Test-Step "'pnpm exec algovis' resolves the bin shim" { $shimOk } (($shim -join " ").Trim())
 
 # ---------------------------------------------------------------- argument rejection
 Write-Section "Bad arguments are rejected"
@@ -141,7 +154,7 @@ foreach ($case in $bad) {
   $code = $LASTEXITCODE
   Test-Step ("rejects: " + $case.args) {
     ($code -ne 0) -and ($out -match $case.expect)
-  } ("exit=$code output=" + ($out -replace "`n", " " -replace "\e\[[\d;]*m", "").Trim())
+  } ("exit=$code output=" + ($out -replace "`n", " ").Trim())
 }
 
 # ---------------------------------------------------------------- not implemented
