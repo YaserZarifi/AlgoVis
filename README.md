@@ -87,14 +87,16 @@ pnpm exec algovis doctor
 
 `./node_modules/.bin/algovis` works too, from the repo root.
 
-A bare `algovis` on your PATH needs pnpm's global bin directory to exist first, which is a
+A bare `algovis` on your PATH needs pnpm's global bin directory to be on PATH first, which is a
 one-time setup plus a shell restart:
 
 ```bash
-pnpm setup                                   # sets PNPM_HOME and adds it to PATH
-# open a new terminal
-pnpm --filter @algovis/cli link --global
+pnpm setup                          # sets PNPM_HOME and puts the global bin dir on PATH
+# open a new terminal, then:
+pnpm -C packages/cli link --global
 ```
+
+`link` takes `-C <dir>`; it rejects `--filter`, which implies `--recursive`.
 
 Every subcommand except `doctor` currently exits 1 with `not implemented` — the pipeline lands
 in later phases.
