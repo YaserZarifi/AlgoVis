@@ -11,6 +11,11 @@ export default defineConfig({
     alias: {
       "@tracecam/schema": pkgSrc("schema"),
       "@tracecam/theme": pkgSrc("theme"),
+      "@tracecam/lift": pkgSrc("lift"),
+      "@tracecam/director": pkgSrc("director"),
+      "@tracecam/views": pkgSrc("views"),
+      "@tracecam/video": pkgSrc("video"),
+      "@tracecam/audio": pkgSrc("audio"),
     },
   },
   test: {
