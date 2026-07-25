@@ -20,7 +20,7 @@ from __future__ import annotations
 from pathlib import Path
 
 TOOL_ID = 2
-TOOL_NAME = "tracecam"
+TOOL_NAME = "algovis"
 
 
 class Recorder:
