@@ -1,9 +1,9 @@
-# Tracecam
+# AlgoVis
 
 Turns real program execution into cinematic animation, rendered deterministically to video files
 at multiple aspect ratios for social media.
 
-You run `tracecam run sort.py`. You get four MP4s — 16:9, 9:16, 1:1, 4:5 — showing your actual
+You run `algovis run sort.py`. You get four MP4s — 16:9, 9:16, 1:1, 4:5 — showing your actual
 algorithm executing, with camera moves, easing, glow, procedural audio, and burned-in captions.
 
 This is not a debugger and not an interactive visualizer. It is a render farm for one machine
@@ -45,7 +45,7 @@ change.
 
 Every pixel of frame *N* is a pure function of `(storyboard, frameNumber, width, height)`. No
 clocks, no unseeded randomness, no timers, no reading a previous frame's mutable state. Frames
-are rendered on demand and out of order — `tracecam render --frames 840-900` produces exactly
+are rendered on demand and out of order — `algovis render --frames 840-900` produces exactly
 the same pixels those frames have in a full render. Nothing is ever screen-captured.
 
 This is enforced mechanically: an ESLint rule bans `Date.now`, `performance.now`, `Math.random`,
@@ -61,7 +61,7 @@ and `packages/views`.
 | pnpm | 9 |
 | ffmpeg | 6 |
 
-Run `tracecam doctor` to check all four.
+Run `algovis doctor` to check all four.
 
 ## Getting started
 
@@ -74,14 +74,14 @@ node packages/cli/dist/index.js doctor
 ## Commands
 
 ```
-tracecam run <file.py> [--entry EXPR]    record, lift, direct, and render — the whole pipeline
-tracecam record <file.py> -o trace.json  stage 1: execute and record
-tracecam lift trace.json -o ops.json     stage 2: primitives to semantic ops
-tracecam direct ops.json -o sb.json      stage 3: the edit — warp, camera, beats, captions
-tracecam render sb.json -o out/          stage 4: frames to video
-tracecam studio sb.json                  Remotion Studio preview (development only)
-tracecam diff a.json b.json -o sb.json   two traces, synchronized, side by side
-tracecam doctor                          check prerequisites
+algovis run <file.py> [--entry EXPR]    record, lift, direct, and render — the whole pipeline
+algovis record <file.py> -o trace.json  stage 1: execute and record
+algovis lift trace.json -o ops.json     stage 2: primitives to semantic ops
+algovis direct ops.json -o sb.json      stage 3: the edit — warp, camera, beats, captions
+algovis render sb.json -o out/          stage 4: frames to video
+algovis studio sb.json                  Remotion Studio preview (development only)
+algovis diff a.json b.json -o sb.json   two traces, synchronized, side by side
+algovis doctor                          check prerequisites
 ```
 
 ## Repo layout
@@ -96,7 +96,7 @@ packages/
   theme/      palettes, type scale, timing constants — every tunable number lives here
   audio/      offline Tone.js render → WAV
   video/      Remotion compositions and layout presets
-  cli/        the tracecam binary
+  cli/        the algovis binary
 ```
 
 `packages/schema` must not import from any other package. Everything else may import it.
