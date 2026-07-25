@@ -87,16 +87,30 @@ pnpm exec algovis doctor
 
 `./node_modules/.bin/algovis` works too, from the repo root.
 
-A bare `algovis` on your PATH needs pnpm's global bin directory to be on PATH first, which is a
-one-time setup plus a shell restart:
+#### A bare `algovis` command
 
-```bash
-pnpm setup                          # sets PNPM_HOME and puts the global bin dir on PATH
-# open a new terminal, then:
-pnpm -C packages/cli link --global
+`pnpm link --global` was removed in pnpm 11, and installing this package globally does not work
+either: `@algovis/cli` depends on `workspace:*` packages, which cannot resolve outside the
+workspace. Use one of these instead.
+
+Put the workspace's bin directory on your PATH — the shims use absolute paths, so they work from
+any directory:
+
+```powershell
+$bin = "$PWD\node_modules\.bin"
+[Environment]::SetEnvironmentVariable(
+  "Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$bin", "User")
+# then open a new terminal
 ```
 
-`link` takes `-C <dir>`; it rejects `--filter`, which implies `--recursive`.
+Or define a function in your PowerShell profile (`notepad $PROFILE`), which survives having
+`node_modules` deleted:
+
+```powershell
+function algovis { node "D:\path\to\repo\packages\cli\dist\index.js" @args }
+```
+
+Both depend on the repo staying where it is.
 
 Every subcommand except `doctor` currently exits 1 with `not implemented` — the pipeline lands
 in later phases.
