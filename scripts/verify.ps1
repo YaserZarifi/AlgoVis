@@ -195,10 +195,12 @@ foreach ($line in $examples) {
 # ---------------------------------------------------------------- hygiene
 Write-Section "Repository hygiene"
 
+# Assembled at runtime so this file does not match its own search and report itself.
+$oldName = "trace" + "cam"
 $stale = git ls-files | ForEach-Object {
-  Select-String -Path $_ -Pattern "tracecam" -SimpleMatch -ErrorAction SilentlyContinue
+  Select-String -Path $_ -Pattern $oldName -SimpleMatch -ErrorAction SilentlyContinue
 }
-Test-Step "no 'tracecam' references remain" { -not $stale } (($stale | ForEach-Object { $_.Path }) -join ", ")
+Test-Step "no '$oldName' references remain" { -not $stale } (($stale | ForEach-Object { $_.Path }) -join ", ")
 
 $ignored = @("CLAUDE.md", ".agents/skills/frontend-design/SKILL.md", "skills-lock.json") |
   Where-Object { Test-Path $_ } |
