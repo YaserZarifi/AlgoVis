@@ -74,6 +74,22 @@ pnpm build && pnpm test && pnpm lint
 node packages/cli/dist/index.js doctor
 ```
 
+On Windows PowerShell there is no `&&` — chain with `;` instead.
+
+## Verifying
+
+```powershell
+powershell -File scripts\verify.ps1
+```
+
+Runs every acceptance check and exits non-zero if any fails, so it works as a pre-push gate.
+It covers prerequisites, the build/test/lint triple, CLI argument validation, the correctness of
+the example programs, and repository hygiene.
+
+It also proves the determinism rule is live rather than merely configured: it plants a
+`Date.now()` in `packages/views`, asserts lint rejects it, removes it, and asserts lint is clean
+again. Pass `-Fast` to skip install and build when you have already built.
+
 ## Commands
 
 ```
