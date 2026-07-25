@@ -71,10 +71,28 @@ Run `algovis doctor` to check all four.
 ```bash
 pnpm install
 pnpm build && pnpm test && pnpm lint
-node packages/cli/dist/index.js doctor
+pnpm exec algovis doctor
 ```
 
 On Windows PowerShell there is no `&&` — chain with `;` instead.
+
+### Running the CLI
+
+`pnpm install` creates a bin shim, so after building:
+
+```bash
+pnpm exec algovis --help
+pnpm exec algovis run examples/quicksort.py
+```
+
+To get a bare `algovis` on your PATH, link it globally:
+
+```bash
+pnpm --filter @algovis/cli link --global
+```
+
+Every subcommand except `doctor` currently exits 1 with `not implemented` — the pipeline lands
+in later phases.
 
 ## Verifying
 
